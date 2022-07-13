@@ -62,8 +62,20 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Message $message)
-    {
-        //
+
+    {   
+        $update=["message"=>$request->message];
+        $item=Message::where("id",$message->id)->update($update);
+        if ($item) {
+      return response()->json([
+        'message' => 'Updated successfully',
+      ], 200);
+    } else {
+      return response()->json([
+        'message' => 'Not found',
+      ], 404);
+    }
+  
     }
 
     /**

@@ -41,7 +41,16 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        $item=User::find($user);
+         if ($item) {
+    return response()->json([
+        'data' => $item
+      ], 200);
+    } else {
+      return response()->json([
+        'message' => 'Not found',
+      ], 404);
+    }
     }
 
     /**
@@ -64,6 +73,15 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        User::where("id",$user->id)->delete();
+                  if ($item) {
+      return response()->json([
+        'message' => 'Deleted successfully',
+      ], 200);
+    } else {
+      return response()->json([
+        'message' => 'Not found',
+      ], 404);
+    }
     }
 }

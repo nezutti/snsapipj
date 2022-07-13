@@ -14,7 +14,10 @@ class CommentController extends Controller
      */
     public function index()
     {
-        
+        $items=Comment::with('user')->get();
+        return response()->json([
+        'data' => $items
+       ], 200);
     }
 
     /**
@@ -39,7 +42,17 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+      $item=Comment::find($comment);
+      if ($item) {
+      return response()->json([
+        'data' => $item
+      ], 200);
+    } else {
+      return response()->json([
+        'message' => 'Not found',
+      ], 404);
+    }
+       
     }
 
     /**
@@ -51,7 +64,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+      
     }
 
     /**
