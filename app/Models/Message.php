@@ -16,7 +16,7 @@ class Message extends Model
     protected $gurded=array("id");
 
     public function user(){
-        return  $hits->belongsTo('App\Models\User');
+        return  $this->belongsTo('App\Models\User','user_uid','uid');
     }
 
     public function hearts(){
