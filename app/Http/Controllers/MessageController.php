@@ -49,10 +49,11 @@ class MessageController extends Controller
       ], 200);
     } else {
       return response()->json([
-        'message' => 'Not found',
-      ], 404);
+        'message' => 'Not found'
+      ],404);
     }
-    }
+
+  }
 
     /**
      * Update the specified resource in storage.
