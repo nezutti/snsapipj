@@ -42,7 +42,7 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-      $item=Message::with('user','hearts','comments',"comments.user")->find($message);
+      $item=Message::with('user','hearts','comments',"comments.user")->find($message)->first();
       if ($item) {
       return response()->json([
         'data' => $item
