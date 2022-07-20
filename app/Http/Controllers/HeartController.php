@@ -61,9 +61,10 @@ class HeartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
-    {
+    {  
+     $item2=['user_uid'=>$request->user_uid, "message_id"=>$request->message_id];
    
-      $item=Heart::where("user_uid",$request->user_uid,"message_id",$request->user_uid)->delete();
+      $item=Heart::where($item2)->delete();
        if ($item) {
             return response()->json([
                 'message' => 'Deleted successfully',
