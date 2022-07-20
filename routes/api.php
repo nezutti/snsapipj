@@ -21,7 +21,8 @@ use App\Http\Controllers\CommentController;
 
 Route::apiResource('/user',UserController::class)->only(['store']);
 Route::apiResource('/message',MessageController::class)->only(['index','store','show','destroy']);
-Route::apiResource('/heart',HeartController::class)->only(['store','destroy']);
+Route::apiResource('/heart',HeartController::class)->only(['store']);
+Route::post("/heart/delete",[HeartController::class,'destroy']);
 Route::apiResource('/comment',CommentController::class)->only(['store','destroy']);
 
 
