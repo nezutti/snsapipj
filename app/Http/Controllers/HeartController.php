@@ -39,9 +39,9 @@ class HeartController extends Controller
      */
     public function show(Request $request)
     {
-         $item2=['user_uid'=>$request->user_uid, "message_id"=>$request->message_id];
+         $item2=['user_uid'=>$request->user_uid];
    
-         $item=Heart::where($itme2)->find();
+         $item=Heart::find($itme2);
          if ($item) {
       return response()->json([
         'data' => $item
@@ -74,7 +74,7 @@ class HeartController extends Controller
      */
     public function destroy(Request $request)
     {  
-     $item2=['user_uid'=>$request->user_uid, "message_id"=>$request->message_id];
+     $item2=['user_uid'=>$request->user_uid,"message_id"=>$request->message_id];
    
       $item=Heart::where($item2)->delete();
        if ($item) {
