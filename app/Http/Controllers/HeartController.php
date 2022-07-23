@@ -37,9 +37,21 @@ class HeartController extends Controller
      * @param  \App\Models\Heart  $heart
      * @return \Illuminate\Http\Response
      */
-    public function show(Heart $heart)
+    public function show(Request $request)
     {
-        //
+         $item2=['user_uid'=>$request->user_uid, "message_id"=>$request->message_id];
+   
+         $item=Heart::where($itme2)->find();
+         if ($item) {
+      return response()->json([
+        'data' => $item
+      ], 200);
+    } else {
+      return response()->json([
+        'message' => 'Not found'
+      ],404);
+    }
+
     }
 
     /**
