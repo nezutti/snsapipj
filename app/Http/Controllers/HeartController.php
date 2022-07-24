@@ -42,7 +42,7 @@ class HeartController extends Controller
          $item2=['user_uid'=>$request->user_uid,'message_id'=>$request->message_id];
          
    
-         $item=Heart::where('user_uid',$request->user_uid)->where('message_id',$request->message_id)->get();
+         $item=Heart::where('user_uid',$request->user_uid)->where('message_id',$request->message_id)->first();
          if ($item) {
       return response()->json([
         'data' => $item
