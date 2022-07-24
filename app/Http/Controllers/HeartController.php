@@ -41,7 +41,7 @@ class HeartController extends Controller
     {
          $item2=['user_uid'=>$request->user_uid];
    
-         $item=Heart::find($itme2);
+         $item=Heart::find($item2);
          if ($item) {
       return response()->json([
         'data' => $item
