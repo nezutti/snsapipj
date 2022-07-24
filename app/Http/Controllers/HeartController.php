@@ -39,9 +39,9 @@ class HeartController extends Controller
      */
     public function show(Request $request)
     {
-         $item2=['user_uid'=>$request->user_uid];
+         $item2=['user_uid'=>$request->user_uid,'message_id'=>$request->message_id];
    
-         $item=Heart::find($item2);
+         $item=Heart::where($item2)->get();
          if ($item) {
       return response()->json([
         'data' => $item
