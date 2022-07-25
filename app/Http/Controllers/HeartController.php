@@ -77,7 +77,7 @@ class HeartController extends Controller
     {  
      $item2=['user_uid'=>$request->user_uid,"message_id"=>$request->message_id];
    
-      $item=Heart::where($item2)->delete();
+      $item=Heart::where($item2)->first()->delete();
        if ($item) {
             return response()->json([
                 'message' => 'Deleted successfully',

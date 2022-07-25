@@ -73,10 +73,10 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Comment $comment)
      
-    {   $item2=['user_uid'=>$request->user_uid,'message_id'=>$request->message_id];
-        $item=Comment::where($item2)->delete();
+    {  
+        $item=Comment::where('id',$comment->id)->delete();
          if ($item) {
             return response()->json([
              'message' => 'Deleted successfully',

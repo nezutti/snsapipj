@@ -24,7 +24,7 @@ Route::apiResource('/message',MessageController::class)->only(['index','store','
 Route::apiResource('/heart',HeartController::class)->only(['store']);
 Route::post('/heart/find',[HeartController::class,'show']);
 Route::post('/heart/delete',[HeartController::class,'destroy']);
-Route::apiResource('/comment',CommentController::class)->only(['store']);
-Route::post('/comment/delete',[CommentController::class,'destroy']);
+Route::apiResource('/comment',CommentController::class)->only(['store','destroy']);
+
 
 
